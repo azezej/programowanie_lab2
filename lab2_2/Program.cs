@@ -77,34 +77,34 @@ namespace lab2_2
             }
         }
 
-            class FabrykaLogistykiUSA : IFabrykaLogistyki
+        class FabrykaLogistykiUSA : IFabrykaLogistyki
+        {
+            public IKurier utworzKuriera(Kurier kurier)
             {
-                public IKurier utworzKuriera(Kurier kurier)
-                {
-                    switch (kurier) {
-                        case Kurier.DHL:
-                            return new DHLKurier();
-                        case Kurier.UPS:
-                            return new UPSKurier();
-                        default:
-                            return null;
-                    }
-                }
-
-            public IPaczka utworzPaczke(Rozmiar rozmiar)
-                {
-                    switch (rozmiar) {
-                        case Rozmiar.mala:
-                            return new MalaPaczka();
-                        case Rozmiar.duza:
-                            return new DuzaPaczka();
-                        default:
-                            return null;
-                    }
+                switch (kurier) {
+                    case Kurier.DHL:
+                        return new DHLKurier();
+                    case Kurier.UPS:
+                        return new UPSKurier();
+                    default:
+                        return null;
                 }
             }
 
-            class ZarzadzaniePrzesylkami {
+        public IPaczka utworzPaczke(Rozmiar rozmiar)
+            {
+                switch (rozmiar) {
+                    case Rozmiar.mala:
+                        return new MalaPaczka();
+                    case Rozmiar.duza:
+                        return new DuzaPaczka();
+                    default:
+                        return null;
+                }
+            }
+        }
+
+        class ZarzadzaniePrzesylkami {
             private IFabrykaLogistyki fabrykaLogistyki;
             private static ZarzadzaniePrzesylkami _instance;
             private ZarzadzaniePrzesylkami() {}
